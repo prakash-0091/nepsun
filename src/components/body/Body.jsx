@@ -17,7 +17,7 @@ const Body = () => {
     }}  >
 
        <Grid container  >
-            <Grid item xs={3} bgcolor='blue' >
+            <Grid item xs={3}  >
                 <BodyLeft/>
             </Grid>
             <Grid item xs={9} bgcolor='yellow' >

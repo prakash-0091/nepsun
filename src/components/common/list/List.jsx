@@ -47,7 +47,7 @@ export default function NestedList({ categories }) {
           return (
             <>
 
-              <ListItemButton key={key} onClick={() => handleClick(keys.indexOf(key))} sx={{
+              <ListItemButton key={key}  onClick={() => handleClick(keys.indexOf(key))} sx={{
                 backgroundColor: open[keys.indexOf(key)] ? 'rgb(231, 231, 231)' : ''
               }} >
 
@@ -59,15 +59,15 @@ export default function NestedList({ categories }) {
               {
                 categories[key].map(item => {
                   return (
-                    <Collapse key={item} in={open[keys.indexOf(key)]} timeout="auto" unmountOnExit>
-                      <List component="div" disablePadding sx={{
+                    <Collapse  in={open[keys.indexOf(key)]} timeout="auto" unmountOnExit>
+                      <List  component="div" disablePadding sx={{
                         backgroundColor: 'rgb(231, 231, 231)'
                       }} >
-                        <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemButton  sx={{ pl: 4 }}  >
                           <ListItemIcon>
                             <SubdirectoryArrowRightIcon />
                           </ListItemIcon>
-                          <ListItemText primary={item} />
+                          <ListItemText  primary={item} />
                         </ListItemButton>
                       </List>
                     </Collapse>

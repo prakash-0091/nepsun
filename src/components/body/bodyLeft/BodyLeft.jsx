@@ -1,6 +1,7 @@
 import { Stack } from '@mui/material'
 import React from 'react'
 import NestedList from '../../common/list/List'
+import Ad from './Ad'
 
 const categories={
   'Automobiles':['car','bike','jeep'],
@@ -23,6 +24,7 @@ const BodyLeft = () => {
   return (
     <Stack spacing={2} alignItems='center'  >
       <NestedList categories={categories} />
+      <Ad/>
     </Stack>
   )
 }
