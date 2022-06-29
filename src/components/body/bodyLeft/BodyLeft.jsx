@@ -3,6 +3,7 @@ import React from 'react'
 import NestedList from '../../common/list/List'
 import Ad from './Ad'
 
+
 const categories={
   'Automobiles':['car','bike','jeep'],
   'Real Estate':['house'],
@@ -23,7 +24,10 @@ const categories={
 const BodyLeft = () => {
   return (
     <Stack spacing={2} alignItems='center'  >
-      <NestedList categories={categories} />
+      {/* you can also use Accordion for this 
+          and also tree view
+      */}
+      <NestedList categories={categories} /> 
       <Ad/>
     </Stack>
   )

@@ -9,22 +9,22 @@ import BodyRight from './bodyRight/BodyRight'
 const Body = () => {
 
   const mediumDevice = useMediaQuery('(max-width:1257px)');
-  const smallerThanTablet = useMediaQuery('(max-width:809px)');
+  const smallDevice = useMediaQuery('(max-width:1010px)');
 
   return (
     <Stack direction='row' spacing={1} sx={{
       padding: mediumDevice ? '' : '0 10%'
     }}  >
-
+      make item sliders
       <Grid container  >
         {
-          smallerThanTablet ? '' :
+          smallDevice ? '' :
             <Grid item xs={3} >
               <BodyLeft />
             </Grid>
         }
         {
-          smallerThanTablet ?
+          smallDevice ?
             <Grid item bgcolor='yellow' xs={12} >
               <BodyRight />
             </Grid> :

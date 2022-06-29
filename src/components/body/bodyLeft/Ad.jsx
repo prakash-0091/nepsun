@@ -5,9 +5,11 @@ const Ad = () => {
     return (
         <Stack sx={{
             border: '1px solid gray',
+            width:'100%',
+            maxWidth:360
 
         }} >
-                Advertisementlkjlhljhjhljhljhjhhggjhghgkhghghgkhjhkjhkhkhkhkhk
+                advertisement
         </Stack>
     )
 }

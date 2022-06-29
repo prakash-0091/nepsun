@@ -10,6 +10,22 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRight';
 import { Divider } from '@mui/material';
 
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import BungalowIcon from '@mui/icons-material/Bungalow';
+import DesktopWindowsIcon from '@mui/icons-material/DesktopWindows';
+import ChairIcon from '@mui/icons-material/Chair';
+import KitchenIcon from '@mui/icons-material/Kitchen';
+import WcIcon from '@mui/icons-material/Wc';
+import WineBarIcon from '@mui/icons-material/WineBar';
+import RadioIcon from '@mui/icons-material/Radio';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import TrainIcon from '@mui/icons-material/Train';
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import MenuIcon from '@mui/icons-material/Menu';
+
+
+const icons=[<DirectionsCarIcon/>,<BungalowIcon/>,<DesktopWindowsIcon/>,<ChairIcon/>,<KitchenIcon/>,<WcIcon/>,<WineBarIcon/>,<RadioIcon/>,<LibraryBooksIcon/>,<TrainIcon/>,<MusicNoteIcon/>,<MenuIcon/>]
+
 
 export default function NestedList({ categories }) {
 
@@ -47,10 +63,12 @@ export default function NestedList({ categories }) {
           return (
             <>
 
-              <ListItemButton key={key}  onClick={() => handleClick(keys.indexOf(key))} sx={{
+              <ListItemButton key={key} onClick={() => handleClick(keys.indexOf(key))} sx={{
                 backgroundColor: open[keys.indexOf(key)] ? 'rgb(231, 231, 231)' : ''
               }} >
-
+                <ListItemIcon>
+                  {icons[keys.indexOf(key)]}
+                </ListItemIcon>
                 <ListItemText primary={key} />
                 {open[keys.indexOf(key)] ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
@@ -59,15 +77,15 @@ export default function NestedList({ categories }) {
               {
                 categories[key].map(item => {
                   return (
-                    <Collapse  in={open[keys.indexOf(key)]} timeout="auto" unmountOnExit>
-                      <List  component="div" disablePadding sx={{
+                    <Collapse in={open[keys.indexOf(key)]} timeout="auto" unmountOnExit>
+                      <List component="div" disablePadding sx={{
                         backgroundColor: 'rgb(231, 231, 231)'
                       }} >
-                        <ListItemButton  sx={{ pl: 4 }}  >
+                        <ListItemButton sx={{ pl: 4 }}  >
                           <ListItemIcon>
                             <SubdirectoryArrowRightIcon />
                           </ListItemIcon>
-                          <ListItemText  primary={item} />
+                          <ListItemText primary={item} />
                         </ListItemButton>
                       </List>
                     </Collapse>
