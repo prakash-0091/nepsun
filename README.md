@@ -4,17 +4,17 @@
 ## To run the project, run this command on your project's console 
     
 ### `git clone 'github url'`
-    > clone the project
+    clone the project
     
 ### `cd nepsun` (in linux)
-    > change directory to cloned project
+    change directory to cloned project
 
 ### `npm install` or `npm i`
-    > install all the required packages
+    install all the required packages
 
     after installation completion
 
 ### `npm start`
-    > to run the app
+    runs the app in development server
 
 
