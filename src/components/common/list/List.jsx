@@ -1,23 +1,39 @@
 import * as React from 'react';
-import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import SendIcon from '@mui/icons-material/Send';
+
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
+import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRight';
+import { Divider } from '@mui/material';
 
-export default function NestedList() {
-  const [open, setOpen] = React.useState(true);
 
-  const handleClick = () => {
-    setOpen(!open);
+export default function NestedList({ categories }) {
+
+  const keys = Object.keys(categories)
+  const keysOpen = {}
+
+  for (const key in keys) {
+    keysOpen[key] = false
+  }
+  const [open, setOpen] = React.useState(keysOpen);
+
+
+
+
+
+
+
+  const handleClick = (keyIndex) => {
+
+    setOpen({ ...open, [keyIndex]: !open[keyIndex] }) //toggling state of clicked item only
+
   };
+
+
 
   return (
     <List
@@ -26,24 +42,46 @@ export default function NestedList() {
       aria-labelledby="nested-list-subheader"
 
     >
+      {
+        keys.map(key => {
+          return (
+            <>
 
-      <ListItemButton onClick={handleClick}>
-        <ListItemIcon>
-          <InboxIcon />
-        </ListItemIcon>
-        <ListItemText primary="Inbox" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="Starred" />
-          </ListItemButton>
-        </List>
-      </Collapse>
-    </List>
+              <ListItemButton key={key} onClick={() => handleClick(keys.indexOf(key))} sx={{
+                backgroundColor: open[keys.indexOf(key)] ? 'rgb(231, 231, 231)' : ''
+              }} >
+
+                <ListItemText primary={key} />
+                {open[keys.indexOf(key)] ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+              <Divider />
+
+              {
+                categories[key].map(item => {
+                  return (
+                    <Collapse key={item} in={open[keys.indexOf(key)]} timeout="auto" unmountOnExit>
+                      <List component="div" disablePadding sx={{
+                        backgroundColor: 'rgb(231, 231, 231)'
+                      }} >
+                        <ListItemButton sx={{ pl: 4 }}>
+                          <ListItemIcon>
+                            <SubdirectoryArrowRightIcon />
+                          </ListItemIcon>
+                          <ListItemText primary={item} />
+                        </ListItemButton>
+                      </List>
+                    </Collapse>
+
+                  )
+                })
+              }
+            </>
+
+          )
+        })
+      }
+
+
+    </List >
   );
 }

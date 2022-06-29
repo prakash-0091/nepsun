@@ -1,8 +1,7 @@
 import { Stack } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useState,useRef } from 'react';
+import {useRef } from 'react';
 
 
 
@@ -21,14 +20,13 @@ const styles = {
     }
 }
 
-const MenuIcon = ({handleMenuClick,getAbsPosition}) => {
+const MenuIcon = ({handleMenuClick}) => {
 
     const menuIcon = useRef()
 
-    getAbsPosition(menuIcon)
 
     return (
-        <Stack ref={menuIcon} spacing={1} p={1} onClick={handleMenuClick}  >
+        <Stack ref={menuIcon} spacing={1} p={1} onClick={()=>handleMenuClick(menuIcon)}  >
    
             <Box sx={styles.menuIconBar } />
             <Box sx={styles.menuIconBarShort}  />

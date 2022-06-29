@@ -1,8 +1,6 @@
 import React from 'react'
-import { useState,useRef } from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-// import MenuIcon from '@mui/icons-material/Menu';
 import MenuIcon from './MenuIcon'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
@@ -10,12 +8,11 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Divider } from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 function getAbsPosition(element) {
     var rect = element.current.getBoundingClientRect();
-    console.log(rect)
+    // console.log(rect)
     return { left: rect.left, top: rect.top }
 }
 
@@ -23,25 +20,18 @@ function getAbsPosition(element) {
 
 const MainMenu = (props) => {
 
-    const getCoords =()=>{
-
-    }
-
-    // console.log(coords)
-    let top = coords.top
-    let left = coords.left
-    // if (lgScreen) {
-    //     top = 10
-    //     left = 110
-    // }
-
-
+    const [top,setTop] = React.useState(null)
+    const [left,setLeft] = React.useState(null)
 
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
 
-    const handleMenuClick = () => {
+    const handleMenuClick = (menuIcon) => {
+        const rect = getAbsPosition(menuIcon)
+        setTop(Math.ceil(rect.top))
+        setLeft(Math.ceil(rect.left))
         setOpen(true)
+        console.log(Math.ceil(top),left)
     }
 
     // const handleToggle = () => {
@@ -63,8 +53,7 @@ const MainMenu = (props) => {
 
     return (
         <>
-            {/* <MenuIcon fontSize='large' onClick={handleMenuClick} /> */}
-            <MenuIcon handleMenuClick={handleMenuClick} getAbsPosition={getAbsPosition} />
+            <MenuIcon handleMenuClick={handleMenuClick}  />
             <Menu
                 id="main-menu"
                 aria-labelledby="main-menu"
