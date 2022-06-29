@@ -31,7 +31,6 @@ const MainMenu = (props) => {
         setTop(Math.ceil(rect.top))
         setLeft(Math.ceil(rect.left))
         setOpen(true)
-        console.log(Math.ceil(top),left)
     }
 
     // const handleToggle = () => {

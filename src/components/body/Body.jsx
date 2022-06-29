@@ -7,24 +7,33 @@ import BodyRight from './bodyRight/BodyRight'
 
 
 const Body = () => {
-    
-    const mediumDevice = useMediaQuery('(max-width:1257px)');
 
+  const mediumDevice = useMediaQuery('(max-width:1257px)');
+  const smallerThanTablet = useMediaQuery('(max-width:809px)');
 
   return (
     <Stack direction='row' spacing={1} sx={{
-        padding: mediumDevice ? '' : '0 10%'
+      padding: mediumDevice ? '' : '0 10%'
     }}  >
 
-       <Grid container  >
-            <Grid item xs={3}  >
-                <BodyLeft/>
+      <Grid container  >
+        {
+          smallerThanTablet ? '' :
+            <Grid item xs={3} >
+              <BodyLeft />
             </Grid>
-            <Grid item xs={9} bgcolor='yellow' >
-                <BodyRight/>
+        }
+        {
+          smallerThanTablet ?
+            <Grid item bgcolor='yellow' xs={12} >
+              <BodyRight />
+            </Grid> :
+            <Grid item bgcolor='yellow' xs={9} >
+              <BodyRight />
             </Grid>
+        }
 
-       </Grid>
+      </Grid>
 
     </Stack>
   )
