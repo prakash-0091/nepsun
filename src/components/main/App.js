@@ -1,6 +1,7 @@
 import { Divider, Stack } from '@mui/material';
 import { Box } from '@mui/system';
 import Body from '../body/Body';
+import Footer from '../footer/Footer';
 import Navbar from '../navbar/Navbar';
 
 
@@ -19,7 +20,7 @@ function App() {
       </Box>
 
       <Box>
-        footer  
+        <Footer/> 
       </Box>
     </Stack>
   );
