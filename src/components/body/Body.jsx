@@ -15,7 +15,6 @@ const Body = () => {
     <Stack direction='row' spacing={1} sx={{
       padding: mediumDevice ? '' : '0 10%'
     }}  >
-      make item sliders
       <Grid container  >
         {
           smallDevice ? '' :
@@ -25,10 +24,10 @@ const Body = () => {
         }
         {
           smallDevice ?
-            <Grid item bgcolor='yellow' xs={12} >
+            <Grid item  xs={12} >
               <BodyRight />
             </Grid> :
-            <Grid item bgcolor='yellow' xs={9} >
+            <Grid item  xs={9} >
               <BodyRight />
             </Grid>
         }

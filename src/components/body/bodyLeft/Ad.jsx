@@ -4,10 +4,12 @@ import React from 'react'
 const Ad = () => {
     return (
         <Stack sx={{
-            border: '1px solid gray',
-            width:'100%',
-            maxWidth:360
-
+            border: '2px solid gray',
+            width:'95%',
+            margin:'auto',
+            minHeight:'250px',
+            padding:'10px',
+            borderRadius:'10px'
         }} >
                 advertisement
         </Stack>

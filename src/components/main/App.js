@@ -17,6 +17,7 @@ function App() {
       <Box>
         <Body/>
       </Box>
+
       <Box>
         footer  
       </Box>
