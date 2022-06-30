@@ -1,0 +1,13 @@
+.items-slider{
+    background-color: whitesmoke;
+    min-height: 250px;
+    max-width: 100%;
+
+
+}
+
+.slider{
+    background-color: whitesmoke;
+
+    overflow-y: auto;
+}
