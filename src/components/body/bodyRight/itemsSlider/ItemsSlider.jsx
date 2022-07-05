@@ -1,10 +1,31 @@
 import { Stack, Typography } from '@mui/material'
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect } from 'react'
 import MultiActionAreaCard from '../../../common/MultiActionAreaCard/MultiActionAreaCard'
 import './itemsSlider.css'
 
 
-const ItemsSlider = () => {
+const ItemsSlider = (props) => {
+
+  const [comingSoonMovies, setComingSoonMovies] = React.useState(null)
+
+  const getComingSoonMovies = async () => {
+    const res = await axios.get('https://api.qfxcinemas.com/api/public/NowShowing')
+
+    if (res.status === 200) {
+      const movies =  res.data.data
+      setComingSoonMovies(movies)
+    }
+    
+  }
+  
+  useEffect(() => {
+    getComingSoonMovies();
+  }, [])
+  
+
+
+
   return (
     // <div className="items-slider"  >
     <Stack spacing={1} className="items-slider" p={1} >
@@ -13,7 +34,7 @@ const ItemsSlider = () => {
         <Typography className='heading' variant='h6' sx={{
 
         }} >
-          Services
+          {props.title}
         </Typography>
         <Typography className='heading' variant='p' sx={{
 
@@ -25,11 +46,15 @@ const ItemsSlider = () => {
 
       <Stack gap={1} className='slider' direction='row' justifyContent='flex-start'  >
 
-        <MultiActionAreaCard />
-        <MultiActionAreaCard />
-        <MultiActionAreaCard />
-        <MultiActionAreaCard />
-        <MultiActionAreaCard />
+        {
+          comingSoonMovies!=null && comingSoonMovies.map(movie=>{
+            return(
+              <MultiActionAreaCard movie={movie} />
+
+            )
+          })
+        }
+
 
       </Stack>
     </Stack>

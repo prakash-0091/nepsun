@@ -19,7 +19,7 @@ const BodyRight = () => {
   return(
     <Stack spacing={2} p={2} sx={{borderRadius:3}}  >
       <ImageSlider />
-      <ItemsSlider/>
+      <ItemsSlider title={'movies'} />
       <ItemsSlider/>
       <ItemsSlider/>
       <Box>

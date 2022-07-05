@@ -8,6 +8,13 @@ import Navbar from '../navbar/Navbar';
 
 
 function App() {
+
+
+ 
+ 
+
+
+
   return (
     <Stack direction='column'>
       <Box sx={{backgroundColor:'white'}} >
