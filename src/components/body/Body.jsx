@@ -8,7 +8,7 @@ import BodyRight from './bodyRight/BodyRight'
 
 const Body = () => {
 
-  const mediumDevice = useMediaQuery('(max-width:1257px)');
+  const mediumDevice = useMediaQuery('(max-width:1920px)');
   const smallDevice = useMediaQuery('(max-width:1010px)');
 
   return (

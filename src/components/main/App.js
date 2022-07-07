@@ -21,14 +21,14 @@ function App() {
         <Navbar/>
 
       </Box>
-      <Divider/>
+      {/* <Divider/>
       <Box>
         <Body/>
       </Box>
 
       <Box>
         <Footer/> 
-      </Box>
+      </Box> */}
     </Stack>
   );
 }
