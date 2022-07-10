@@ -12,7 +12,7 @@ export default function MultiActionAreaCard(props) {
   if (props.movie !== undefined) {
     return ( //,maxHeight:270,minHeight:230,
       <Card sx={{ minWidth: 260, maxWidth: 260, margin: 1, display: 'flex', flexDirection: 'column' }}>
-        <CardActionArea component='Box' >
+        <CardActionArea component='div' >
           <CardMedia
             component="img"
             height="50"
@@ -33,7 +33,7 @@ export default function MultiActionAreaCard(props) {
           <Divider />
           <CardActions >
             <Button size="small" color="primary"  >
-              Share
+              Buy Tickets
             </Button>
           </CardActions>
         </Box>

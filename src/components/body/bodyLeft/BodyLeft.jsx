@@ -1,6 +1,6 @@
 import { Stack } from '@mui/material'
 import React from 'react'
-import NestedList from '../../common/list/List'
+import NestedList from '../../common/list/NestedList'
 import Ad from './Ad'
 
 

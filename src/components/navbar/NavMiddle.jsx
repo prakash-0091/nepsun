@@ -9,7 +9,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 const locations = ['ktm', 'lpt', 'pkh', 'brt']
-const categories = ['all','electronics', 'sports', 'automobiles', 'music', 'music', 'music']
+const categories = ['all','electronics', 'sports', 'automobiles', 'music']
 
 
 

@@ -139,7 +139,7 @@ export default function UnstyledSelectSimple({ datas }) {
         datas.map(data => {
           return (
 
-            <StyledOption value={data}>{data.toUpperCase()}</StyledOption>
+            <StyledOption key={data} value={data}>{data.toUpperCase()}</StyledOption>
           )
         })
       }

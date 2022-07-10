@@ -7,7 +7,7 @@ import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { Divider } from '@mui/material';
+import { Button, Divider } from '@mui/material';
 
 
 function getAbsPosition(element) {
@@ -20,47 +20,60 @@ function getAbsPosition(element) {
 
 const MainMenu = (props) => {
 
-    const [top,setTop] = React.useState(null)
-    const [left,setLeft] = React.useState(null)
+    const [top, setTop] = React.useState(0)
+    const [left, setLeft] = React.useState(0)
 
-    const [open, setOpen] = React.useState(false);
-    const anchorRef = React.useRef(null);
+    // const [open, setOpen] = React.useState(false);
+    // const anchorRef = React.useRef(null);
 
-    const handleMenuClick = (menuIcon) => {
-        const rect = getAbsPosition(menuIcon)
-        setTop(Math.ceil(rect.top))
-        setLeft(Math.ceil(rect.left))
-        setOpen(true)
-    }
+    // const handleMenuClick = (menuIcon) => {
+    //     const rect = getAbsPosition(menuIcon)
+    //     setTop(Math.ceil(rect.top))
+    //     setLeft(Math.ceil(rect.left))
+    //     setOpen(true)
+    // }
 
-    // const handleToggle = () => {
-    //     setOpen((prevOpen) => !prevOpen);
+    // // const handleToggle = () => {
+    // //     setOpen((prevOpen) => !prevOpen);
+    // // };
+
+    // const handleClose = (event) => {
+    //     if (anchorRef.current && anchorRef.current.contains(event.target)) {
+    //         return;
+    //     }
+
+    //     setOpen(false);
     // };
 
-    const handleClose = (event) => {
-        if (anchorRef.current && anchorRef.current.contains(event.target)) {
-            return;
-        }
-
-        setOpen(false);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleMenuClick = (event) => {
+        setAnchorEl(event.currentTarget);
     };
-
-
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
 
 
 
     return (
         <>
-            <MenuIcon handleMenuClick={handleMenuClick}  />
+            <Button
+                id="main-menu-btn"
+                aria-controls={open ? 'main-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleMenuClick}
+            >
+                <MenuIcon handleMenuClick={handleMenuClick} />
+            </Button>
             <Menu
                 id="main-menu"
                 aria-labelledby="main-menu"
-                anchorEl={open}
+                anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
-                anchorReference="anchorPosition"
-                anchorPosition={{ top: top, left: left }}
                 anchorOrigin={{
                     vertical: 'top',
                     horizontal: 'left',

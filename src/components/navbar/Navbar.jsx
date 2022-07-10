@@ -1,4 +1,4 @@
-import { Avatar, Badge, Button, InputBase, Modal, Stack, Typography } from '@mui/material'
+import { Alert, Avatar, Badge, Button, InputBase, Modal, Snackbar, Stack, Typography } from '@mui/material'
 import MainMenu from './MainMenu'
 import React, { useRef } from 'react'
 import { Box } from '@mui/system'
@@ -17,13 +17,13 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 400,
     color: 'white',
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
     borderRadius: '5px',
-    boxShadow: 24,
     pt: 2,
     px: 4,
     pb: 3,
+    background: 'rgba(32, 32, 32,0.5)',
+    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.2)',
+    backdropFilter: 'blur(10px)',
 };
 
 const inputStyle = {
@@ -46,12 +46,17 @@ const Navbar = () => {
     const smallDevice = useMediaQuery('(max-width:1010px)');
     const mediumDevice = useMediaQuery('(max-width:1257px)');
 
+
+    const [loginFormError, setLoginFormError] = React.useState('')
     const [openLoginForm, setOpenLoginForm] = React.useState(false)
     const [openRegisterForm, setOpenRegisterForm] = React.useState(false)
-    const [username, setUsername] = React.useState(null)
-    const [password, setPassword] = React.useState(null)
+    const [username, setUsername] = React.useState('')
+    const [password, setPassword] = React.useState('')
     const [loggedIn, setLoggedIn] = React.useState(false)
-    const [user, setUser] = React.useState(null)
+    const [user, setUser] = React.useState('')
+
+    const [errorOpen, setErrorOpen] = React.useState(false)
+
 
     const [passFieldType, setPassFieldType] = React.useState('password')
 
@@ -72,22 +77,41 @@ const Navbar = () => {
     const handleLogin = () => {
 
         if (username !== null && password !== null) {
-            setLoggedIn(true)
-            setUser('Prakash')
-            setUsername(null)
-            setPassword(null)
-            setOpenLoginForm(false)
+
+            if (username === 'user' && password === 'user') {
+                setLoggedIn(true)
+                setUser('Prakash')
+                setUsername('')
+                setPassword('')
+                setOpenLoginForm(false)
+            } else {
+                setLoginFormError('Username or Password Incorrect')
+                setErrorOpen(true)
+            }
+
+
         }
     }
 
+    const handleErrorClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setErrorOpen(false);
+    };
+
+
+
     const handleLogout = () => {
         setLoggedIn(false)
-        setUser(null)
+        setUser('')
     }
 
 
     return (
-        <  >
+        <>
+
             <Stack direction='row' justifyContent='space-between' sx={{
                 padding: mediumDevice ? '1%' : '1% 10%'
             }}  >
@@ -152,7 +176,7 @@ const Navbar = () => {
                                         </Stack>
                                         <Stack spacing={2}>
                                             <InputBase required fullWidth placeholder='username' autoFocus sx={{ ...inputStyle }} value={username} onChange={e => setUsername(e.currentTarget.value)} />
-                                            <Stack direction='row' justifyContent='space-between' alignItems='center' sx={{ ...inputStyle,paddingRight:'15px' }} >
+                                            <Stack direction='row' justifyContent='space-between' alignItems='center' sx={{ ...inputStyle, paddingRight: '15px' }} >
                                                 <InputBase required fullWidth placeholder='password' autoComplete='false' type={passFieldType} value={password} onChange={e => setPassword(e.currentTarget.value)} />
 
                                                 {
@@ -166,9 +190,15 @@ const Navbar = () => {
                                                 Register
                                             </Button>
                                         </Stack>
+
                                         {/* <ChildModal /> */}
                                     </Box>
                                 </Modal>
+                                <Snackbar open={errorOpen} autoHideDuration={6000} onClose={handleClose}>
+                                    <Alert onClose={handleErrorClose} severity="error" sx={{ width: '100%' }}>
+                                        Username or Password Incorrect!
+                                    </Alert>
+                                </Snackbar>
                                 <Button variant='contained' color='warning' >
                                     post free ads
                                 </Button>

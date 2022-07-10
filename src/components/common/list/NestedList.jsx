@@ -8,7 +8,7 @@ import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRight';
-import { Divider } from '@mui/material';
+import { Box, Divider } from '@mui/material';
 
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import BungalowIcon from '@mui/icons-material/Bungalow';
@@ -24,7 +24,7 @@ import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import MenuIcon from '@mui/icons-material/Menu';
 
 
-const icons=[<DirectionsCarIcon/>,<BungalowIcon/>,<DesktopWindowsIcon/>,<ChairIcon/>,<KitchenIcon/>,<WcIcon/>,<WineBarIcon/>,<RadioIcon/>,<LibraryBooksIcon/>,<TrainIcon/>,<MusicNoteIcon/>,<MenuIcon/>]
+const icons = [<DirectionsCarIcon />, <BungalowIcon />, <DesktopWindowsIcon />, <ChairIcon />, <KitchenIcon />, <WcIcon />, <WineBarIcon />, <RadioIcon />, <LibraryBooksIcon />, <TrainIcon />, <MusicNoteIcon />, <MenuIcon />]
 
 
 export default function NestedList({ categories }) {
@@ -61,9 +61,9 @@ export default function NestedList({ categories }) {
       {
         keys.map(key => {
           return (
-            <>
+            <Box key={key} >
 
-              <ListItemButton key={key} onClick={() => handleClick(keys.indexOf(key))} sx={{
+              <ListItemButton  onClick={() => handleClick(keys.indexOf(key))} sx={{
                 backgroundColor: open[keys.indexOf(key)] ? 'rgb(231, 231, 231)' : ''
               }} >
                 <ListItemIcon>
@@ -73,11 +73,11 @@ export default function NestedList({ categories }) {
                 {open[keys.indexOf(key)] ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <Divider />
-
+              
               {
                 categories[key].map(item => {
                   return (
-                    <Collapse in={open[keys.indexOf(key)]} timeout="auto" unmountOnExit>
+                    <Collapse key={item} in={open[keys.indexOf(key)]} timeout="auto" unmountOnExit>
                       <List component="div" disablePadding sx={{
                         backgroundColor: 'rgb(231, 231, 231)'
                       }} >
@@ -93,7 +93,7 @@ export default function NestedList({ categories }) {
                   )
                 })
               }
-            </>
+            </Box>
 
           )
         })

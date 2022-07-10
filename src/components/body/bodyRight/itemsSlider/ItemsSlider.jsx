@@ -49,7 +49,7 @@ const ItemsSlider = (props) => {
         {
           comingSoonMovies!=null && comingSoonMovies.map(movie=>{
             return(
-              <MultiActionAreaCard movie={movie} />
+              <MultiActionAreaCard key={movie.name} movie={movie} />
 
             )
           })
