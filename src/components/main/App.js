@@ -4,32 +4,48 @@ import Body from '../body/Body';
 import Footer from '../footer/Footer';
 import Navbar from '../navbar/Navbar';
 
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
+import Profile from '../profile/Profile';
 
 
 function App() {
 
 
- 
- 
+
+
 
 
 
   return (
-    <Stack direction='column'>
-      <Box sx={{backgroundColor:'white'}} >
-        <Navbar/>
+    <Router>
+      <Stack direction='column'>
+        <Box sx={{ backgroundColor: 'white' }} >
+          <Navbar />
 
-      </Box>
-      <Divider/>
-      <Box>
-        <Body/>
-      </Box>
+        </Box>
+        <Divider />
 
-      <Box>
-        <Footer/> 
-      </Box>
-    </Stack>
+        <Routes>
+          <Route exact path='/' element={
+            <>
+              <Box>
+                <Body />
+              </Box>
+
+              <Box>
+                <Footer />
+              </Box>
+            </>}
+          ></Route>
+          <Route exact path='/profile' element={< Profile />}></Route>
+        </Routes>
+      </Stack>
+    </Router>
   );
 }
 

@@ -10,40 +10,12 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { Button, Divider } from '@mui/material';
 
 
-function getAbsPosition(element) {
-    var rect = element.current.getBoundingClientRect();
-    // console.log(rect)
-    return { left: rect.left, top: rect.top }
-}
-
-
 
 const MainMenu = (props) => {
 
-    const [top, setTop] = React.useState(0)
-    const [left, setLeft] = React.useState(0)
 
-    // const [open, setOpen] = React.useState(false);
-    // const anchorRef = React.useRef(null);
 
-    // const handleMenuClick = (menuIcon) => {
-    //     const rect = getAbsPosition(menuIcon)
-    //     setTop(Math.ceil(rect.top))
-    //     setLeft(Math.ceil(rect.left))
-    //     setOpen(true)
-    // }
 
-    // // const handleToggle = () => {
-    // //     setOpen((prevOpen) => !prevOpen);
-    // // };
-
-    // const handleClose = (event) => {
-    //     if (anchorRef.current && anchorRef.current.contains(event.target)) {
-    //         return;
-    //     }
-
-    //     setOpen(false);
-    // };
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
