@@ -5,6 +5,7 @@ import App from './components/main/App';
 import { Provider } from 'react-redux';
 import {store} from './app/store'
 
+import swDev from './swDev';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,9 @@ root.render(
     </React.StrictMode>
   </Provider>
 );
+
+
+swDev()
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -20,8 +20,7 @@ const BodyRight = () => {
     <Stack spacing={2} p={2} sx={{borderRadius:3}}  >
       <ImageSlider />
       <ItemsSlider title={'movies'} />
-      <ItemsSlider/>
-      <ItemsSlider/>
+
       <Box>
         <Ad/> 
       </Box>
