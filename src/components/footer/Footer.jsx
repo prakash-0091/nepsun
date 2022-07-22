@@ -6,7 +6,7 @@ const Footer = () => {
     <Stack alignItems='center' spacing={2} justifyContent='center' sx={{
         backgroundColor:'black',
         color:'white',
-        padding:'10px 20px'
+        padding:'10px 20px',
     }} >
         <Typography variant='p'>
             copyright@2022 | nepsun

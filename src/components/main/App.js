@@ -4,13 +4,18 @@ import Body from '../body/Body';
 import Footer from '../footer/Footer';
 import Navbar from '../navbar/Navbar';
 
+
+
+
+
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
 } from 'react-router-dom';
 import Profile from '../profile/Profile';
+import Chats from '../chats/Chats';
+
 
 
 function App() {
@@ -37,13 +42,21 @@ function App() {
                 <Body />
               </Box>
 
-              <Box>
-                <Footer />
-              </Box>
             </>}
           ></Route>
-          <Route exact path='/profile' element={< Profile />}></Route>
+
+          <Route exact path='/profile' element={
+            < Profile />}
+          ></Route>
+
+          <Route exact path='/chats' element={
+            < Chats/>}
+          ></Route>
+
         </Routes>
+        <Box  >
+          <Footer />
+        </Box>
       </Stack>
     </Router>
   );

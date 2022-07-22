@@ -8,6 +8,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Button, Divider } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 
@@ -67,7 +68,8 @@ const MainMenu = (props) => {
                 <MenuItem onClick={handleClose} >
                     <ArrowBackIosIcon />Back
                 </MenuItem>
-                <MenuItem onClick={handleClose} ><AccountCircleIcon />&nbsp;Profile</MenuItem>
+                <Link  to='/profile'><MenuItem onClick={handleClose} ><AccountCircleIcon />&nbsp;Profile</MenuItem></Link>
+                <Link  to='/chats'><MenuItem onClick={handleClose} ><AccountCircleIcon />&nbsp;Chats</MenuItem></Link>
                 <MenuItem onClick={handleClose} ><SystemUpdateAltIcon />&nbsp;Download The App</MenuItem>
                 <MenuItem onClick={handleClose} >< SettingsIcon />&nbsp;Settings</MenuItem>
 

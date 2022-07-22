@@ -1,0 +1,41 @@
+
+.chat-box{
+    padding: 5px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.message-content{
+    border: 1px solid rgba(195, 195, 195, 0.783);
+    height: 60vh;
+
+    border-radius: 5px;
+    padding: 5px;
+    background-image: linear-gradient(rgba(9, 9, 122, 0.641),rgba(24, 21, 4, 0.755));
+}
+
+.message{
+    color: white;
+    
+    padding: 8px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 300px;
+    word-wrap: break-word;
+
+}
+.sent{
+    background-color: rgba(12, 44, 95, 0.574);
+}
+.received{
+    background-color: rgba(30, 38, 15, 0.444);
+}
+.scroll-to-btm{
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}

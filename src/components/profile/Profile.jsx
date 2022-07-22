@@ -10,6 +10,9 @@ const Profile = () => {
   return (
     <div className='profile'>
         <Link to='/'>Home</Link>
+        <h1>
+          Profile
+        </h1>
     </div>
   )
 }
