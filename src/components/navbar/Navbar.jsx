@@ -1,5 +1,5 @@
 import { Alert, Avatar, Badge, Button, Snackbar, Stack, Typography } from '@mui/material'
-import MainMenu from './MainMenu'
+// import MainMenu from './MainMenu'
 import React from 'react'
 import { Box } from '@mui/system'
 import BasicSelect from './BasicSelect'
@@ -70,7 +70,7 @@ const Navbar = () => {
             }}  >
                 <Stack direction='row' alignItems='center' >
                     <Box>
-                        <MainMenu />
+                        {/* <MainMenu /> */}
                     </Box>
                     <Box>
                         Nepsun

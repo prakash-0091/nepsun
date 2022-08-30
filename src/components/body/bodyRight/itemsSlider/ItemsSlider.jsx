@@ -3,27 +3,30 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import MultiActionAreaCard from '../../../common/MultiActionAreaCard/MultiActionAreaCard'
 import './itemsSlider.css'
-
+import {fetchFromAPI} from '../../../../utils/fetchFromApi'
 
 const ItemsSlider = (props) => {
 
   const [comingSoonMovies, setComingSoonMovies] = React.useState(null)
 
-  const getComingSoonMovies = async () => {
-    const res = await axios.get('https://api.qfxcinemas.com/api/public/NowShowing')
+  // const getComingSoonMovies = async () => {
+  //   const res = await axios.get('https://api.qfxcinemas.com/api/public/NowShowing')
 
-    if (res.status === 200) {
-      const movies =  res.data.data
-      setComingSoonMovies(movies)
-    }
+  //   if (res.status === 200) {
+  //     const movies =  res.data.data
+  //     setComingSoonMovies(movies)
+  //   }
     
-  }
+  // }
   
   useEffect(() => {
-    getComingSoonMovies();
+    fetchFromAPI('NowShowing')
+      .then((data)=>{
+        setComingSoonMovies(data)
+
+      })
   }, [])
   
-
 
 
   return (

@@ -14,7 +14,7 @@ import {
   Route,
 } from 'react-router-dom';
 import Profile from '../profile/Profile';
-import Chats from '../chats/Chats';
+// import Chats from '../chats/Chats';
 
 
 
@@ -48,10 +48,10 @@ function App() {
           <Route exact path='/profile' element={
             < Profile />}
           ></Route>
-
+{/* 
           <Route exact path='/chats' element={
             < Chats/>}
-          ></Route>
+          ></Route> */}
 
         </Routes>
         <Box  >

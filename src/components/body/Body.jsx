@@ -1,7 +1,6 @@
 import { Grid, Stack } from '@mui/material'
 import React from 'react'
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { Box } from '@mui/system';
 import BodyLeft from './bodyLeft/BodyLeft';
 import BodyRight from './bodyRight/BodyRight'
 
